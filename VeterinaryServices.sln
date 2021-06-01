@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeterinaryServices.Domain", "VeterinaryServices.Domain\VeterinaryServices.Domain.csproj", "{7EF98040-4B4F-4B4A-ACB9-67C2199A8959}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{623FC74A-D2C7-4345-B9C7-F4657FC98FA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VeterinaryServices", "VeterinaryServices", "{3C580EC9-BE83-4E92-86CC-6CB6BFFF53AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EF98040-4B4F-4B4A-ACB9-67C2199A8959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF98040-4B4F-4B4A-ACB9-67C2199A8959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF98040-4B4F-4B4A-ACB9-67C2199A8959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF98040-4B4F-4B4A-ACB9-67C2199A8959}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C580EC9-BE83-4E92-86CC-6CB6BFFF53AC} = {623FC74A-D2C7-4345-B9C7-F4657FC98FA1}
+		{7EF98040-4B4F-4B4A-ACB9-67C2199A8959} = {3C580EC9-BE83-4E92-86CC-6CB6BFFF53AC}
+	EndGlobalSection
+EndGlobal
