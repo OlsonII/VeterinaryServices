@@ -7,10 +7,10 @@ namespace VeterinaryServices.Domain.Entities
         public string Observation { get; set; }
         public HospitalizationState State { get; set; }
         
-        public new void Input(Pet pet, Doctor doctor)
+        public new void Input(long petId, long doctorId)
         {
             State = HospitalizationState.InProgress;
-            base.Input(pet, doctor);
+            base.Input(petId, doctorId);
         }
         
         public override void Output()

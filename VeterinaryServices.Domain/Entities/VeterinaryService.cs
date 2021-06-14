@@ -5,15 +5,15 @@ namespace VeterinaryServices.Domain.Entities
 {
     public abstract class VeterinaryService : Entity<long>, IVeterinaryService
     {
-        public Doctor Doctor { get; set; }
-        public Pet Pet { get; set; }
+        public long DoctorId { get; set; }
+        public long PetId { get; set; }
         public DateTime Date { get; set; }
         public double Cost { get; set; }
 
-        public void Input(Pet pet, Doctor doctor)
+        public void Input(long petId, long doctorId)
         {
-            Pet = pet;
-            Doctor = doctor;
+            PetId = petId;
+            DoctorId = doctorId;
         }
 
         public abstract void Output();
