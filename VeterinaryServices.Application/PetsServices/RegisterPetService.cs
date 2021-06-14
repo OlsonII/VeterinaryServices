@@ -19,11 +19,11 @@ namespace VeterinaryServices.Application.PetsServices
 
         public async Task<RegisterPetResponse> Execute(RegisterPetRequest request)
         {
-            var clientInDb = await _unitOfWork.ClientRepository.Find(request.Owner.Identification);
+            var clientInDb = await _unitOfWork.ClientRepository.Find(request.Owner.Id);
             if (clientInDb == null)
                 return null; //TODO: REGISTER CLIENT HERE
             
-            var clientPets = await _unitOfWork.PetRepository.FindBy(pet => pet.OwnerId == clientInDb.Identification);
+            var clientPets = await _unitOfWork.PetRepository.FindBy(pet => pet.OwnerId == clientInDb.Id);
             var petRegistered = clientPets.FirstOrDefault(pet => pet.Name == request.Name && pet.Gender == request.Gender && pet.Color == request.Color);
 
             if (petRegistered != null)
@@ -37,7 +37,7 @@ namespace VeterinaryServices.Application.PetsServices
                 Kind = request.Kind,
                 Size = request.Size,
                 Weight = request.Weight,
-                OwnerId = request.Owner.Identification
+                OwnerId = request.Owner.Id
             };
 
             await _unitOfWork.PetRepository.Insert(petToRegister);

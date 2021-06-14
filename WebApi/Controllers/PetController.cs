@@ -19,6 +19,7 @@ namespace WebApi.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        [HttpPost]
         public async Task<IActionResult> RegisterPet(RegisterPetRequest request)
         {
             var service = new RegisterPetService(_unitOfWork);

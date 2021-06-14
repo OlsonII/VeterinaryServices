@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using VeterinaryServices.Domain.Contracts;
+using VeterinaryServices.Infrastructure;
+using VeterinaryServices.Infrastructure.Base;
 
 namespace WebApi
 {
@@ -27,6 +31,12 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //TODO: EXPLAIN DEPENDENCY INJECTION
+            services.AddDbContext<DbContext, VeterinaryServicesContext>
+            (opt => opt.UseMySQL($"Server = localhost; Port = 3306; Database = Veterinary_Services ; Username = root ; Password = 1981"),
+                ServiceLifetime.Transient
+            );
+            services.AddTransient<VeterinaryServicesContext>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebApi", Version = "v1"}); });
         }
