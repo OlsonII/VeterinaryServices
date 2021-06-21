@@ -2,6 +2,6 @@ namespace VeterinaryServices.Domain.Base
 {
     public interface IEntity<T>
     {
-        T Identification { get; set; }
+        T Id { get; set; }
     }
 }

@@ -10,10 +10,10 @@ namespace VeterinaryServices.Domain.Entities
         // public Dictionary<string, int> Prescription { get; set; }
         public MedicalAppointmentState State { get; set; }
 
-        public new void Input(Pet pet, Doctor doctor)
+        public new void Input(long petId, long doctorId)
         {
             State = MedicalAppointmentState.Pending;
-            base.Input(pet, doctor);
+            base.Input(petId, doctorId);
         }
         
         public override void Output()

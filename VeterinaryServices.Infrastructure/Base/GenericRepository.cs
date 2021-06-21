@@ -9,7 +9,7 @@ using VeterinaryServices.Domain.Contracts;
 
 namespace VeterinaryServices.Infrastructure.Base
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public abstract class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly DbSet<T> _dbSet;
 
@@ -43,7 +43,7 @@ namespace VeterinaryServices.Infrastructure.Base
             _dbSet.Update(entity);
         }
 
-        public async void Insert(T entity)
+        public async Task Insert(T entity)
         {
             await _dbSet.AddAsync(entity);
         }

@@ -15,5 +15,7 @@ namespace VeterinaryServices.Infrastructure
         public VeterinaryServicesContext(DbContextOptions options) : base(options)
         {
         }
+        
+        //TODO: ADD REGISTER AND UPDATE DATE
     }
 }

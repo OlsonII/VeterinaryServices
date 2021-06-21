@@ -12,6 +12,6 @@ namespace VeterinaryServices.Domain.Contracts
         Task<List<T>> FindBy(Expression<Func<T, bool>> predicate);
         void SaveRange(IEnumerable<T> entities);
         void Update(T entity);
-        void Insert(T entity);
+        Task Insert(T entity);
     }
 }

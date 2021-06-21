@@ -6,10 +6,10 @@ namespace VeterinaryServices.Domain.Entities
     {
         public AestheticServiceState State { get; set; }
         
-        public new void Input(Pet pet, Doctor doctor)
+        public new void Input(long petId, long doctorId)
         {
             State = AestheticServiceState.InProgress;
-            base.Input(pet, doctor);
+            base.Input(petId, doctorId);
         }
         
         public void Start()
