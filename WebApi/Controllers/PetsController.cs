@@ -10,15 +10,20 @@ namespace WebApi.Controllers
     [ApiController]
     // [ApiVersion("1")]
     [Route("pets")]
-    public class PetController : ControllerBase
+    public class PetsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public PetController(IUnitOfWork unitOfWork)
+        public PetsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        /// Register Pet
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns name="message"></returns>
         [HttpPost]
         public async Task<IActionResult> RegisterPet(RegisterPetRequest request)
         {

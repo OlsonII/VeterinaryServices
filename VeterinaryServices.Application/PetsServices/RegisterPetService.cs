@@ -19,25 +19,25 @@ namespace VeterinaryServices.Application.PetsServices
 
         public async Task<RegisterPetResponse> Execute(RegisterPetRequest request)
         {
-            var clientInDb = await _unitOfWork.ClientRepository.Find(request.Owner.Id);
+            var clientInDb = await _unitOfWork.ClientRepository.Find(request.OwnerId);
             if (clientInDb == null)
                 return null; //TODO: REGISTER CLIENT HERE
             
             var clientPets = await _unitOfWork.PetRepository.FindBy(pet => pet.OwnerId == clientInDb.Id);
-            var petRegistered = clientPets.FirstOrDefault(pet => pet.Name == request.Name && pet.Gender == request.Gender && pet.Color == request.Color);
-
+            var petRegistered = clientPets.FirstOrDefault(pet => pet.Name == request.PetName && pet.Gender == request.PetGender && pet.Color == request.PetColor);
+            
             if (petRegistered != null)
                 return null; //TODO: PET IS REGISTERED EXCEPTION
 
             var petToRegister = new Pet
             {
-                Name = request.Name,
-                Color = request.Color,
-                Gender = request.Gender,
-                Kind = request.Kind,
-                Size = request.Size,
-                Weight = request.Weight,
-                OwnerId = request.Owner.Id
+                Name = request.PetName,
+                Color = request.PetColor,
+                Gender = request.PetGender,
+                Kind = request.PetKind,
+                Size = request.PetSize,
+                Weight = request.PetWeight,
+                OwnerId = request.OwnerId
             };
 
             await _unitOfWork.PetRepository.Insert(petToRegister);
